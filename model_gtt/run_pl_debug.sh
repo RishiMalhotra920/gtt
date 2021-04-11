@@ -38,6 +38,7 @@ python3 run_pl_gtt.py  \
 --n_gpu 0 \
 --debug \
 --thresh $th \
---do_predict \
 --do_train 
+# --do_predict \
+
 done
