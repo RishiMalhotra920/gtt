@@ -38,6 +38,6 @@ python3 run_pl_gtt.py  \
 --seed $SEED \
 --n_gpu 1 \
 --thresh $th \
---do_predict \
-# --do_train 
+--do_train 
+# --do_predict \
 done
