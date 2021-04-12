@@ -26,7 +26,7 @@ echo "==========================================================================
 echo "                                           threshold (${th})                              "
 echo "=========================================================================================="
 python3 run_pl_gtt.py  \
---data_dir ../data/muc/processed \
+--data_dir "/content/drive/MyDrive/IE/SciREX Cleaned Data" \
 --model_type bert \
 --model_name_or_path $BERT_MODEL \
 --output_dir $OUTPUT_DIR \
