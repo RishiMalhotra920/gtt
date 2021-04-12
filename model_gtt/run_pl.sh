@@ -5,7 +5,7 @@ export MAX_LENGTH_TGT=75
 export BERT_MODEL=bert-base-uncased
 
 export BATCH_SIZE=1
-export NUM_EPOCHS=20 # original 18
+export NUM_EPOCHS=2 # original 18
 export SEED=1
 
 export OUTPUT_DIR_NAME=model435_e20
