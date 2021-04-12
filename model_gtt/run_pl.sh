@@ -5,7 +5,7 @@ export MAX_LENGTH_TGT=75
 export BERT_MODEL=bert-base-uncased
 
 export BATCH_SIZE=1
-export NUM_EPOCHS=20 # original 18
+export NUM_EPOCHS=2 # original 18
 export SEED=1
 
 export OUTPUT_DIR_NAME=model435_e20
@@ -36,7 +36,7 @@ python3 run_pl_gtt.py  \
 --train_batch_size $BATCH_SIZE \
 --eval_batch_size $BATCH_SIZE \
 --seed $SEED \
---n_gpu 1 \
+--n_gpu 0 \
 --thresh $th \
 --do_train 
 # --do_predict \
