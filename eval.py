@@ -73,17 +73,17 @@ def score(mapping, pred, gold):
     mapped_temp_gold = []
     for pred_temp_idx in mapping:
         gold_temp_idx = mapping[pred_temp_idx]
-        if type(pred[pred_temp_idx]["incident_type"]) != str:
-            pred[pred_temp_idx]["incident_type"] = "attack"
+        if type(pred[pred_temp_idx]["Material"]) != str:
+            pred[pred_temp_idx]["Material"] = ""
         # attach vs attach / bombing
-        if gold_temp_idx != -1 and pred[pred_temp_idx]["incident_type"] in gold[gold_temp_idx]["incident_type"]:
+        if gold_temp_idx != -1 and pred[pred_temp_idx]["Material"] in gold[gold_temp_idx]["Material"]:
             mapped_temp_pred.append(pred_temp_idx)
             mapped_temp_gold.append(gold_temp_idx)
             pred_temp, gold_temp = pred[pred_temp_idx], gold[gold_temp_idx]
 
             # prec
             for role in pred_temp.keys():
-                if role == "incident_type":
+                if role == "Material":
                     ex_result[role]["p_den"] += 1
                     ex_result[role]["p_num"] += 1
                     continue
@@ -99,7 +99,7 @@ def score(mapping, pred, gold):
 
             # recall
             for role in gold_temp.keys():
-                if role == "incident_type":
+                if role == "Material":
                     ex_result[role]["r_den"] += 1
                     ex_result[role]["r_num"] += 1
                     continue
@@ -117,7 +117,7 @@ def score(mapping, pred, gold):
         pred_temp = pred[pred_temp_idx]
         if pred_temp_idx not in mapped_temp_pred:
             for role in pred_temp:
-                if role == "incident_type":
+                if role == "Material":
                     ex_result[role]["p_den"] += 1
                     continue
                 for entity_pred in pred_temp[role]:
@@ -159,7 +159,7 @@ def eval_tf(preds, golds, docids=[]):
     for docid in preds:
         for idx_temp in range(len(preds[docid])):
             for role in preds[docid][idx_temp]:
-                if role == "incident_type":
+                if role == "Material":
                     continue
                 for idx in range(len(preds[docid][idx_temp][role])):
                     for idy in range(len(preds[docid][idx_temp][role][idx])):
@@ -168,7 +168,7 @@ def eval_tf(preds, golds, docids=[]):
     for docid in golds:
         for idx_temp in range(len(golds[docid])):
             for role in golds[docid][idx_temp]:
-                if role == "incident_type":
+                if role == "Material":
                     continue
                 for idx in range(len(golds[docid][idx_temp][role])):
                     for idy in range(len(golds[docid][idx_temp][role][idx])):
