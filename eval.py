@@ -242,7 +242,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--pred_file", default=None, type=str,
                         required=False, help="preds output file")
-    parser.add_argument("--gold_file", default="./data/muc/processed/test.json",
+    parser.add_argument("--gold_file", default="/content/drive/MyDrive/IE/SciREX Cleaned Data/test.json",
                         type=str, required=False, help="gold file")
     parser.add_argument("--event_n", default=-1, type=str,
                         required=False, help="event n")
