@@ -172,8 +172,9 @@ def eval_tf(preds, golds, docids=[]):
                     continue
                 for idx in range(len(golds[docid][idx_temp][role])):
                     for idy in range(len(golds[docid][idx_temp][role][idx])):
-                        golds[docid][idx_temp][role][idx][idy] = normalize_string(
-                            golds[docid][idx_temp][role][idx][idy])
+                        if type(golds[docid][idx_temp][role][idx][idy]) == str:
+                            golds[docid][idx_temp][role][idx][idy] = normalize_string(
+                                golds[docid][idx_temp][role][idx][idy])
 
     # get eval results
     result = OrderedDict()
