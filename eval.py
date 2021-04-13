@@ -266,7 +266,7 @@ if __name__ == "__main__":
             for template_raw in templates_raw:
                 template = OrderedDict()
                 for role, value in template_raw.items():
-                    if role == "incident_type":
+                    if role == "Materials":
                         template[role] = value
                     else:
                         template[role] = []
