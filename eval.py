@@ -128,7 +128,7 @@ def score(mapping, pred, gold):
         gold_temp = gold[gold_temp_idx]
         if gold_temp_idx not in mapped_temp_gold:
             for role in gold_temp:
-                if role == "incident_type":
+                if role == "Material":
                     ex_result[role]["r_den"] += 1
                     continue
                 for entity_gold in gold_temp[role]:
@@ -172,7 +172,7 @@ def eval_tf(preds, golds, docids=[]):
                     continue
                 for idx in range(len(golds[docid][idx_temp][role])):
                     for idy in range(len(golds[docid][idx_temp][role][idx])):
-                        if type(golds[docid][idx_temp][role][idx][idy]) == str:
+                        if type(golds[docid][idx_temp][role][idx][idy]) != str:
                             golds[docid][idx_temp][role][idx][idy] = normalize_string(
                                 golds[docid][idx_temp][role][idx][idy])
 
