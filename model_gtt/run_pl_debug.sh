@@ -39,6 +39,6 @@ python3 run_pl_gtt.py  \
 --debug \
 --thresh $th \
 --do_train 
-# --do_predict \
+--do_predict \
 
 done
