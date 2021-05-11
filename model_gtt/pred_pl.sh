@@ -3,18 +3,16 @@
 export MAX_LENGTH_SRC=435 # 435
 export MAX_LENGTH_TGT=75
 export BERT_MODEL=bert-base-uncased
-export BERT_TRAINED="/content/gtt/model_gtt/model435_e1/checkpointepoch=0.ckpt" #bert-base-uncased
+export BERT_TRAINED=/content/drive/MyDrive/IE/Checkpoints/model435_e1/checkpointepoch=0.ckpt
 
 export BATCH_SIZE=1
 export NUM_EPOCHS=1 # original 18
 export SEED=1
 
 export OUTPUT_DIR_NAME=model435_e1
-export CURRENT_DIR=/content/drive/MyDrive/IE/Checkpoints
+export CURRENT_DIR=/content/drive/MyDrive/IE/Checkpoints/eval_folder
 export OUTPUT_DIR=${CURRENT_DIR}/${OUTPUT_DIR_NAME}
-
 mkdir -p $OUTPUT_DIR
-echo "CURRENT_DIR => $CURRENT_DIR"
 
 # Add parent directory to python path to access transformer_base.py
 export PYTHONPATH="../":"${PYTHONPATH}"
@@ -31,7 +29,7 @@ echo "==========================================================================
 python3 run_pl_gtt.py  \
 --data_dir "/content/drive/MyDrive/IE/SciREX Cleaned Data" \
 --model_type bert \
---model_name_or_path $BERT_MODEL \
+--model_name_or_path $BERT_TRAINED \
 --output_dir $OUTPUT_DIR \
 --max_seq_length_src  $MAX_LENGTH_SRC \
 --max_seq_length_tgt $MAX_LENGTH_TGT \
@@ -41,7 +39,6 @@ python3 run_pl_gtt.py  \
 --seed $SEED \
 --n_gpu 1 \
 --thresh $th \
---do_train
-# --do_train \
+--do_pred
 
 done
